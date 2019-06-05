@@ -14,9 +14,13 @@ Tensorflow implementation of RNN(Recurrent Neural Network) for sentiment analysi
 
 ## Usage
 ### Train
-* positive data is located in *<U>"data/rt-polaritydata/rt-polarity.pos"*</U>
-* negative data is located in *<U>"data/rt-polaritydata/rt-polarity.neg"*</U>
-* "[GoogleNews-vectors-negative300](https://code.google.com/archive/p/word2vec/)" is used as pre-trained word2vec model
+* anger data is located in *<U>"data/rt-polaritydata/rt-polarity.ang"*</U>
+* disgust data is located in *<U>"data/rt-polaritydata/rt-polarity.disg"*</U>
+* fear data is located in *<U>"data/rt-polaritydata/rt-polarity.fear"*</U>
+* neutral data is located in *<U>"data/rt-polaritydata/rt-polarity.neut"*</U>
+* sadness data is located in *<U>"data/rt-polaritydata/rt-polarity.sad"*</U>
+* surprise data is located in *<U>"data/rt-polaritydata/rt-polarity.surp"*</U>
+* "[GoogleNews-vectors-negative300](https://code.google.com/archive/p/word2vec/)" or "[GloVe-100d](https://nlp.stanford.edu/projects/glove/)" are used as pre-trained word2vec models
 * Display help message:
 
 	```bash
@@ -30,9 +34,7 @@ Tensorflow implementation of RNN(Recurrent Neural Network) for sentiment analysi
 	
 	```bash
 	$ python train.py --cell_type "vanilla" \
-	--pos_dir "data/rt-polaritydata/rt-polarity.pos" \
-	--neg_dir "data/rt-polaritydata/rt-polarity.neg"\
-	--word2vec "GoogleNews-vectors-negative300.bin"
+	--glove "glove.6B.100d.txt"
 	```
 		
 	#### 2. Long Short-Term Memory (LSTM) RNN
@@ -40,9 +42,7 @@ Tensorflow implementation of RNN(Recurrent Neural Network) for sentiment analysi
 	
 	```bash
 	$ python train.py --cell_type "lstm" \
-	--pos_dir "data/rt-polaritydata/rt-polarity.pos" \
-	--neg_dir "data/rt-polaritydata/rt-polarity.neg"\
-	--word2vec "GoogleNews-vectors-negative300.bin"
+	--glove "glove.6B.100d.txt"
 	```
 	
 	#### 3. Gated Reccurrent Unit (GRU) RNN
@@ -50,22 +50,16 @@ Tensorflow implementation of RNN(Recurrent Neural Network) for sentiment analysi
 	
 	```bash
 	$ python train.py --cell_type "gru" \
-	--pos_dir "data/rt-polaritydata/rt-polarity.pos" \
-	--neg_dir "data/rt-polaritydata/rt-polarity.neg"\
-	--word2vec "GoogleNews-vectors-negative300.bin"
+	--glove "glove.6B.100d.txt"
 	```
 
 
 ### Evalutation
-* Movie Review dataset has **no test data**.
-* If you want to evaluate, you should make test dataset from train data or do cross validation. However, cross validation is not implemented in my project.
-* The bellow example just use full rt-polarity dataset same the train dataset
+
 * **Evaluation Example:**
 
 	```bash
 	$ python eval.py \
-	--pos_dir "data/rt-polaritydata/rt-polarity.pos" \
-	--neg_dir "data/rt-polaritydata/rt-polarity.neg" \
 	--checkpoint_dir "runs/1523902663/checkpoints"
 	```
 
