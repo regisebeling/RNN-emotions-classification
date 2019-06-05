@@ -4,13 +4,8 @@ Tensorflow implementation of RNN(Recurrent Neural Network) for sentiment analysi
 ![rnn](https://user-images.githubusercontent.com/15166794/39031786-370d0cae-44a5-11e8-8440-27102312274c.png)
 
 
-## Data: Movie Review
-* Movie reviews with one sentence per review. Classification involves detecting positive/negative reviews ([Pang and Lee, 2005](#reference))
-* Download "*sentence polarity dataset v1.0*" at the [Official Download Page](http://www.cs.cornell.edu/people/pabo/movie-review-data/)
-* Located in *<U>"data/rt-polaritydata/"</U>* in my repository
-* *rt-polarity.pos* contains 5331 positive snippets
-* *rt-polarity.neg* contains 5331 negative snippets
-
+## Data: Tweets about terrorist attacks
+* Samples with one sentence per tweet. Classification involves detecting emotions samples.
 
 ## Usage
 ### Train
